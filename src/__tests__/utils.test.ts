@@ -15,38 +15,54 @@ describe('Utils test suite', () => {
     expect(actual).toBe(expected);
   });
 
-  it('should return info for valid string', () => {
-    const actual = getStringInfo('My-String');
+  describe('getStringInfo for arg My-String should', () => {
+    it('return right length', () => {
+      const actual = getStringInfo('My-String');
+      expect(actual.characters).toHaveLength(9);
+    });
 
-    // toBe - for primitive types
-    expect(actual.lowerCase).toBe('my-string');
-    // toEqual - for objects
-    expect(actual.extraInfo).toEqual({});
+    it('return right lower case', () => {
+      const actual = getStringInfo('My-String');
+      // toBe - for primitive types
+      expect(actual.lowerCase).toBe('my-string');
+    });
 
-    // expect(actual.characters.length).toBe(9);
-    expect(actual.characters).toHaveLength(9);
+    it('return right uppercase case', () => {
+      const actual = getStringInfo('My-String');
+      expect(actual.upperCase).toBe('MY-STRING');
+    });
 
-    expect(actual.characters).toEqual([
-      'M',
-      'y',
-      '-',
-      'S',
-      't',
-      'r',
-      'i',
-      'n',
-      'g',
-    ]);
+    it('return right characters', () => {
+      const actual = getStringInfo('My-String');
 
-    expect(actual.characters).toContain<string>('M');
+      expect(actual.characters).toEqual([
+        'M',
+        'y',
+        '-',
+        'S',
+        't',
+        'r',
+        'i',
+        'n',
+        'g',
+      ]);
 
-    expect(actual.characters).toEqual(
-      expect.arrayContaining(['M', 'y', 'S', 'g'])
-    );
+      expect(actual.characters).toContain<string>('M');
 
-    expect(actual.extraInfo).not.toBe(undefined);
-    expect(actual.extraInfo).not.toBeUndefined();
-    expect(actual.extraInfo).toBeDefined();
-    expect(actual.extraInfo).toBeTruthy();
+      expect(actual.characters).toEqual(
+        expect.arrayContaining(['M', 'y', 'S', 'g'])
+      );
+    });
+
+    it('return defined extra info', () => {
+      const actual = getStringInfo('My-String');
+      expect(actual.extraInfo).toBeDefined();
+    });
+
+    it('return right extra info', () => {
+      const actual = getStringInfo('My-String');
+      // toEqual - for objects
+      expect(actual.extraInfo).toEqual({});
+    });
   });
 });
