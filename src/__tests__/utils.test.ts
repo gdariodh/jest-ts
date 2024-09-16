@@ -30,11 +30,11 @@ describe('Utils test suite', () => {
     });
 
     // teardown hook - cleanup
-    afterEach(() => {
-      // clearing mocks
-      sut = null;
-      // console.log('Teardown');
-    });
+    // afterEach(() => {
+    // clearing mocks
+    // sut = null;
+    // console.log('Teardown');
+    // });
 
     it('should return correct upperCase', () => {
       // act
@@ -42,6 +42,37 @@ describe('Utils test suite', () => {
       // assert
       expect(actual).toBe('ABC');
       // console.log('Actual Test');
+    });
+
+    it('should throw error on invalid argument - function', () => {
+      function expectError() {
+        const actual = sut.toUpperCase('');
+      }
+
+      expect(expectError).toThrow();
+      expect(expectError).toThrowError('Invalid argument!');
+    });
+
+    it('should throw error on invalid argument - arrow function', () => {
+      expect(() => {
+        sut.toUpperCase('');
+      }).toThrow();
+
+      expect(() => {
+        sut.toUpperCase('');
+      }).toThrowError('Invalid argument!');
+    });
+
+    it('should throw error on invalid argument - try catch block', (done) => {
+      try {
+        sut.toUpperCase('');
+        // add fail if no error - fail is thrown by jest when there is no error thrown
+        done('StringUtils should throw error for invalid arg!');
+      } catch (error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error).toHaveProperty('message', 'Invalid argument!');
+        done();
+      }
     });
   });
 
