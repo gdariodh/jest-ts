@@ -15,7 +15,7 @@ describe('Utils test suite', () => {
     expect(actual).toBe(expected);
   });
 
-  describe.only('StringUtils test', () => {
+  describe('StringUtils test', () => {
     let sut: StringUtils;
 
     // jest hook
