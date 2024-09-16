@@ -1,4 +1,4 @@
-import { getStringInfo, toUpperCase } from '../utils/utils';
+import { getStringInfo, StringUtils, toUpperCase } from '../utils/utils';
 
 // AAA principles
 // 1. Arrange - setup the test, 2. Act - execute the test, 3. Assert - check the result
@@ -13,6 +13,36 @@ describe('Utils test suite', () => {
     const actual = sut('abc');
     // assert
     expect(actual).toBe(expected);
+  });
+
+  describe.only('StringUtils test', () => {
+    let sut: StringUtils;
+
+    // jest hook
+    // beforeEach, afterEach -> unit test
+    // beforeAll, afterAll -> integration test
+
+    // setup hook
+    beforeEach(() => {
+      // arrange
+      sut = new StringUtils();
+      // console.log('Setup');
+    });
+
+    // teardown hook - cleanup
+    afterEach(() => {
+      // clearing mocks
+      sut = null;
+      // console.log('Teardown');
+    });
+
+    it('should return correct upperCase', () => {
+      // act
+      const actual = sut.toUpperCase('abc');
+      // assert
+      expect(actual).toBe('ABC');
+      // console.log('Actual Test');
+    });
   });
 
   describe('ToUpperCase examples', () => {

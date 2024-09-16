@@ -1,5 +1,11 @@
 import { stringInfo } from '../models/utils.model';
 
+export class StringUtils {
+  public toUpperCase(value: string): string {
+    return toUpperCase(value);
+  }
+}
+
 export function toUpperCase(value: string): string {
   return value.toUpperCase();
 }
