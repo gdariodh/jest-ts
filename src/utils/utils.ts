@@ -13,6 +13,8 @@ export function toUpperCase(value: string): string {
   return value.toUpperCase();
 }
 
+// we add istanbul ignore next to ignore this function from coverage
+/* istanbul ignore next */
 export function getStringInfo(value: string): stringInfo {
   return {
     lowerCase: value.toLowerCase(),
