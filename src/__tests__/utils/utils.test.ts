@@ -1,4 +1,4 @@
-import { getStringInfo, StringUtils, toUpperCase } from '../utils/utils';
+import { getStringInfo, StringUtils, toUpperCase } from '../../utils/utils';
 
 // AAA principles
 // 1. Arrange - setup the test, 2. Act - execute the test, 3. Assert - check the result

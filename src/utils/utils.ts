@@ -1,4 +1,4 @@
-import { stringInfo } from '../models/utils.model';
+import { stringInfo } from '../models/utils/utils.model';
 
 export class StringUtils {
   public toUpperCase(value: string): string {
