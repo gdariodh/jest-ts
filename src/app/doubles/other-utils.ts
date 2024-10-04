@@ -1,6 +1,15 @@
+import { v4 } from 'uuid';
 import { stringInfo } from '../../models/doubles/other-utils.model';
 
 export type LoggerServiceCallback = (arg: string) => void;
+
+export function toUpperCase(arg: string) {
+  return arg.toUpperCase();
+}
+
+export function toLowerCaseWithId(arg: string) {
+  return arg.toLowerCase() + v4();
+}
 
 export function calculateComplexity(stringInfo: stringInfo) {
   return Object.keys(stringInfo.extraInfo).length * stringInfo.length;
