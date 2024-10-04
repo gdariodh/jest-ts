@@ -1,5 +1,6 @@
 import {
   calculateComplexity,
+  OtherStringUtils,
   toUpperCaseWithCb,
 } from '../../app/doubles/other-utils';
 
@@ -79,6 +80,35 @@ describe('OtherUtils test suite', () => {
       expect(actual).toBe('ABC');
       expect(callbackMock).toHaveBeenCalledWith('called function with abc');
       expect(callbackMock).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('OtherStringUtils tests with spies', () => {
+    let sut: OtherStringUtils;
+
+    beforeEach(() => {
+      sut = new OtherStringUtils();
+    });
+
+    it('Use a spy to track calls', () => {
+      const toUpperCaseSpy = jest.spyOn(sut, 'toUpperCase');
+      sut.toUpperCase('asa');
+      expect(toUpperCaseSpy).toHaveBeenCalledWith('asa');
+    });
+
+    it('Use a spy to track calls to other module', () => {
+      const clgSpy = jest.spyOn(sut, 'logString');
+      sut.logString('abc');
+      expect(clgSpy).toHaveBeenCalledWith('abc');
+    });
+
+    // for private methods, we need to cast the sut to any - not recommended - but it works
+    it('Use a spy to replace the implementation of a method', () => {
+      jest.spyOn(sut as any, 'callExternalService').mockImplementation(() => {
+        console.log('calling mocked implementation');
+      });
+
+      (sut as any).callExternalService();
     });
   });
 });
