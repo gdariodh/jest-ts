@@ -1,5 +1,5 @@
 import { DataBase } from '../../../app/server-app/data/data-base';
-import * as IdGenerator from '../../../app/server-app/data/Id-generator';
+import * as IdGenerator from '../../../app/server-app/data/id-generator';
 
 type someTypeWithId = {
   id: string;

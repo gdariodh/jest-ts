@@ -1,6 +1,6 @@
 import { Account, SessionToken } from '../models/auth.model';
 import { DataBase } from './data-base';
-import { generateRandomId } from './Id-generator';
+import { generateRandomId } from './id-generator';
 
 export class SessionTokenDataAccess {
   private sessionTokensDataBase = new DataBase<SessionToken>();

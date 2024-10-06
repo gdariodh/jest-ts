@@ -1,4 +1,4 @@
-import { generateRandomId } from './Id-generator';
+import { generateRandomId } from './id-generator';
 
 type ObjectWithId = {
   id: string;
