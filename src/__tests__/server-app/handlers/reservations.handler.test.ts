@@ -9,7 +9,7 @@ import {
 } from '../../../app/server-app/models/server.model';
 
 const getRequestBodyMock = jest.fn();
-jest.mock('../../../app/server_app/utils/Utils', () => ({
+jest.mock('../../../app/server-app/utils/requests.util', () => ({
   getRequestBody: () => getRequestBodyMock(),
 }));
 
