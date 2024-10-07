@@ -12,7 +12,7 @@ export class SessionTokenDataAccess {
       valid: true,
       expirationDate: this.generateExpirationTime(),
     });
-    console.log(`Inserting ${tokenId} into the database`);
+    // console.log(`Inserting ${tokenId} into the database`);
     return tokenId;
   }
 
